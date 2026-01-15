@@ -1,0 +1,17 @@
+BÁO CÁO TỐI ƯU TRUY VẤN (EXPLAIN & INDEX)
+Họ tên: Trần Minh Hòa
+MSSV: 20231417
+
+1. Tối ưu truy vấn lọc trạng thái (loans)
+- Mục tiêu: Tối ưu các câu truy vấn lọc theo trạng thái mượn và ngày hết hạn (Ví dụ Q4, Q8).
+- Index đã tạo: CREATE INDEX idx_status_due ON loans(status, due_date);
+- So sánh kết quả EXPLAIN:
+  + Trước khi có index: MySQL phải quét toàn bộ bảng (type = ALL), cột rows hiển thị số lượng bản ghi lớn (toàn bộ bảng).
+  + Sau khi có index: MySQL sử dụng key 'idx_status_due' (type = ref). Cột rows giảm xuống đáng kể vì hệ thống tìm trực tiếp được các dòng thỏa mãn điều kiện mà không cần duyệt hết bảng.
+
+2. Tối ưu truy vấn JOIN (loan_items)
+- Mục tiêu: Tăng tốc độ JOIN giữa bảng books và loan_items (Ví dụ Q5).
+- Index đã tạo: CREATE INDEX idx_loan_items_book ON loan_items(book_id);
+- So sánh kết quả EXPLAIN:
+  + Trước khi có index: Khi tìm kiếm sách trong bảng chi tiết, MySQL quét tuần tự (type = ALL).
+  + Sau khi có index: MySQL dùng index để nhảy trực tiếp đến các bản ghi chứa book_id cần tìm (type = ref). Hiệu suất cải thiện rõ rệt khi dữ liệu lớn.
