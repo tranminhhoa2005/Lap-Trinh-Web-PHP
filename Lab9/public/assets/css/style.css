@@ -1,0 +1,15 @@
+body {
+    background-color: #f8f9fa;
+}
+.table thead th {
+    vertical-align: middle;
+    text-align: center;
+}
+.table tbody td {
+    vertical-align: middle;
+}
+/* Hiệu ứng loading nếu cần */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
