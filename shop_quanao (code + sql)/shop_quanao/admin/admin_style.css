@@ -1,0 +1,62 @@
+:root {
+    --admin-pink: #ff85a2;
+    --admin-dark: #4a4a4a;
+    --admin-bg: #fff5f7;
+}
+
+body {
+    background-color: var(--admin-bg);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--admin-dark);
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #ff85a2 0%, #ef476f 100%);
+    min-height: 100vh;
+    box-shadow: 4px 0 15px rgba(255, 133, 162, 0.2);
+}
+
+.sidebar h4 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    border-radius: 10px;
+    margin: 5px 15px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.card-stat {
+    border: none;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(255, 133, 162, 0.1);
+    transition: 0.3s;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+}
+
+.table-container {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.btn-pink {
+    background: var(--admin-pink);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+}
